@@ -1,0 +1,74 @@
+/* Home pg bg */
+#homeBg{
+    background-image: url(https://i.postimg.cc/LssXf8rZ/BackF-1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* nav bar background colour */
+#navbarB{
+    background-color: black;
+    /* height: 165px;    */
+}
+
+/* for SILK in nav bar */
+.heading{
+    margin-left: 40%;
+    color: white;
+}
+
+/* style SILK heading */
+#hSilk{
+    font-family: playfair display;
+    font-size:70px;
+    font-weight: bolder;
+}
+
+/* My lip+silk logo div */
+#logo{
+    justify-self: flex-start;
+}
+
+/* placing of nav links */
+#position{
+    margin-top: 0;
+    
+}
+
+/* to postion SILK w nav links */
+#flex{
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap:10px;
+    /* margin-left: 5%; */
+    justify-content: center;
+}
+
+/* spacing and styling of nav li */
+#navC{
+    margin-left: 4pc;
+    font-family: playfair display;
+    font-size: 35px;
+    color: white;
+}
+
+#navC:hover{
+    color: #900A06;
+}
+
+/* for footer */
+#foot{
+    background-color: black;
+    height: 65px;
+    margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
