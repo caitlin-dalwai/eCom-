@@ -104,16 +104,55 @@
     height: 1000px;
 }
 
+/* to extend product pg */
 #prodScroll{
-    overflow-y: scroll;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* spaces between cards divs */
+#prodMg{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 690px;
+}
+
+
+/* postioning of products btns */
+
+#btnP{
+    margin-left: 1%;
+    background-image: url(https://i.postimg.cc/jq6MgFyx/Untitled-design.png);
+    color: white;
+    border:none;
+    height: 62px;
+    width: 124px;
+    
+
+}
+
+/* styling of products purchase and delete btn */
+#butc{
+    background-color: black;
+    font-family: playfair display;
+    font-size: 16px;
+
 }
 
 
 
+/* quantity div for quantity */
+#quantP{
+    margin-bottom: 1%;
+}
 
-
-
-
-
+/* total cost display */
+#totalcost{
+    width: 188px;
+    height: 26px;
+    border: black 1px solid;
+    margin-bottom: 3%;
+}
 
 
