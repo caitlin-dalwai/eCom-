@@ -64,6 +64,47 @@
     margin-bottom: 0px;
 }
 
+/* about bg */
+#aboutBg{
+    background-image: url(https://i.postimg.cc/Y24J0LCm/image-1.png);
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+/* to center btns ABOUT */
+#btns{
+    margin-left: 0%;
+}
+
+/* for spaces btwn btns ABOUT */
+#space{
+    margin-bottom: 3%;
+    width: 1440px;
+    height: 70px;
+    font-size: 35px;
+    color: black;
+    font-weight: bold;
+    background-color: #900A06;
+    border: black 5px solid;
+    font-family: playfair display;
+
+}
+
+/* sub heading */
+#aboutH{
+    margin-left: 36%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    
+
+}
+
+/* to extend About page */
+#aboutScroll{
+    height: 1000px;
+}
+
+
 
 
 
