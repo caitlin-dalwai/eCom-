@@ -66,7 +66,7 @@
 
 /* about bg */
 #aboutBg{
-    background-image: url(https://i.postimg.cc/Y24J0LCm/image-1.png);
+    background-image: url(https://i.postimg.cc/qv9ZbksN/IMG-7789.jpg);
     background-repeat: repeat-y;
     background-size: cover;
 }
@@ -90,10 +90,10 @@
 
 }
 
-/* sub heading */
+/*  heading for about  */
 #aboutH{
     margin-left: 36%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-bottom: 2%;
     
 
@@ -111,16 +111,21 @@
     flex-direction: column;
 }
 
-/* spaces between cards divs */
+/* spaces between cards divs 1 */
 #prodMg{
-    margin-top: 5%;
+    margin-top: 1%;
     margin-bottom: 5%;
-    height: 690px;
+
 }
 
+/* spaces between cards divs 2 */
+#prodMg1{
+    margin-top: 1%;
+    margin-bottom: 5%;
+
+}
 
 /* postioning of products btns */
-
 #btnP{
     margin-left: 1%;
     background-image: url(https://i.postimg.cc/jq6MgFyx/Untitled-design.png);
@@ -129,7 +134,6 @@
     height: 62px;
     width: 124px;
     
-
 }
 
 /* styling of products purchase and delete btn */
@@ -137,7 +141,6 @@
     background-color: black;
     font-family: playfair display;
     font-size: 16px;
-
 }
 
 
@@ -149,10 +152,61 @@
 
 /* total cost display */
 #totalcost{
-    width: 188px;
+    width: fit-content;
     height: 26px;
     border: black 1px solid;
     margin-bottom: 3%;
 }
 
+
+/* products img heading */
+#prodH{
+    margin-left: 38%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+/* products sub heading div */
+#prodSub{
+    width: 1440px;
+    background-color: #900A06;
+    height: 80px;
+    text-align: center;
+    margin-bottom: 0%;
+}
+
+/* to style prod subh */
+#subF{
+    color: white;
+    font-family: playfair display;
+    font-size: 40px;
+    padding: 1%;
+
+}
+
+
+/* products bg */
+#prodbg{
+    background-image: url(https://i.postimg.cc/6Qr4k0vd/image-1-1.png);
+    background-repeat: repeat-y;
+    background-size: contain;
+}
+
+/* sort btn postioning */
+#sortbtn{
+    margin-left: 92.5%;
+    
+}
+
+/* to style sort btn */
+#sortB{
+    background-color: #B00505;
+}
+
+/* modal btn */
+#modalBtn{
+    background-color: #900A06;
+    color: white;
+    margin-bottom: 1%;
+}
 

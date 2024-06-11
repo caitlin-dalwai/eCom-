@@ -10,7 +10,7 @@
     <title>Products</title>
 </head>
 
-<body>
+<body id="prodbg">
     <div id="navbarB">
         <header>
             <nav class="navbar navbar-expand-lg">
@@ -22,6 +22,37 @@
                     <div class="heading">
                         <h1 id="hSilk">SILK</h1>
                     </div>
+
+                    <!-- search btn -->
+                    <div class="fixed-top">
+                        <nav class="navbar">
+                            <div class="container-fluid justify-content-end">
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" id="inputJs" type="search"
+                                        placeholder="Find what you desire" aria-label="Search">
+                                    <button class="btn btn-outline-danger" id="sBtnJs" type="submit">Search</button>
+                                </form>
+                            </div>
+                        </nav>
+
+                        <!--  -->
+
+                        <!-- sort btn -->
+                        <div class="dropdown" id="sortbtn">
+                            <button class="btn btn-secondary dropdown-toggle" id="sortB" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort by:
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" id="cLinkJs" href="#">Category</a></li>
+                                <li><a class="dropdown-item" id="pLinkJs" href="#">Price Range</a></li>
+                                <li><a class="dropdown-item" id="aLinkJs" href="#">A-Z</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--  -->
+
                     <div class="container-fluid" id="position">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -61,37 +92,29 @@
 
 
     <main id="prodScroll">
+        <!-- products heading -->
+        <div id="prodH">
+            <img src="https://i.postimg.cc/Wbktk810/Group-3.png" alt="prodHead">
+        </div>
+        <!--  -->
+        <!-- <div id="prodSub">
+            <h2 id="subF">Cosmetic Products</h2>
+        </div> -->
         <div class="d-flex justify-content-evenly justify-content-center" id="prodMg">
-            <div class="card" style="width: 18rem;">
-                <img src="https://i.postimg.cc/BnvGvNYc/Group-8.png" class="card-img-top" alt="blush">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                        <div id="quantP">
-                            <h6>Quantity:</h6>
-                            <input type="number" id="mass" placeholder="Enter Quantity">
-                        </div>
-                        <h6>Total cost:</h6>
-                        <div id="totalcost">
-    
-                        </div>
-                        <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
+            
+            <!-- js code will show here -->
+
             </div>
 
-            <div class="card" style="width: 18rem;">
+            <!-- <div class="card" style="width: 18rem;">
                 <img src="https://i.postimg.cc/43t249gQ/Makeup-1.png" class="card-img-top" alt="lipstick">
                 <div class="card-body">
-                    <h5 class="card-title">THE ONE</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <h5 class="card-title">Red Dior Lipstick</h5>
+                    <p value="300">R300</p>
+                    <p class="card-text">Dior Lipstick Red is a bold statement shade that exerts confidence and glamour.
+                        With its vibrant, classic red colour, it instantly elevates any look. Indulge in the velvety
+                        smooth application of Dior's lipstick formula, which glides effortlessly onto the lips.</p>
+
                     <div id="quantP">
                         <h6>Quantity:</h6>
                         <input type="number" id="mass" placeholder="Enter Quantity">
@@ -113,18 +136,20 @@
                 <img src="https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png"
                     class="card-img-top" alt="foundation">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                        <div id="quantP">
-                            <h6>Quantity:</h6>
-                            <input type="number" id="mass" placeholder="Enter Quantity">
-                        </div>
-                        <h6>Total cost:</h6>
-                        <div id="totalcost">
-    
-                        </div>
-                    <div class="d-flex">
+                    <h5 class="card-title">NARS foundation</h5>
+                    <p value="200">R200</p>
+                    <p class="card-text">Indulge in the luxurious formulas crafted with skin-loving ingredients that
+                        nourish and enhance your natural beauty. From silk to full coverage, each foundation seamlessly
+                        blends into the skin, blurring imperfections and creating a smooth, flawless canvas.</p>
+                    <div id="quantP">
+                        <h6>Quantity:</h6>
+                        <input type="number" id="mass" placeholder="Enter Quantity">
+                    </div>
+                    <h6>Total cost:</h6>
+                    <div id="totalcost">
+
+                    </div> -->
+                    <!-- <div class="d-flex">
                         <a href="#" class="btn btn-primary" id="btnP">
                             <h1 id="butc">PURCHASE</h1>
                         </a><a href="#" class="btn btn-primary" id="btnP">
@@ -136,79 +161,12 @@
 
         </div>
 
-        <div class="d-flex justify-content-evenly" id="prodMg">
-            <div class="card" style="width: 18rem;">
-                <img src="https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png" class="card-img-top"
-                    alt="headband">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                        <div id="quantP">
-                            <h6>Quantity:</h6>
-                            <input type="number" id="mass" placeholder="Enter Quantity">
-                        </div>
-                        <h6>Total cost:</h6>
-                        <div id="totalcost">
-    
-                        </div>
-                    <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png"
-                    class="card-img-top" alt="brushes">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                        <div id="quantP">
-                            <h6>Quantity:</h6>
-                            <input type="number" id="mass" placeholder="Enter Quantity">
-                        </div>
-                        <h6>Total cost:</h6>
-                        <div id="totalcost">
-    
-                        </div>
-                    <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="https://i.postimg.cc/7ZQjZ2W5/download-1-1.png" class="card-img-top" alt="blender">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                        <div id="quantP">
-                            <h6>Quantity:</h6>
-                            <input type="number" id="mass" placeholder="Enter Quantity">
-                        </div>
-                        <h6>Total cost:</h6>
-                        <div id="totalcost">
-    
-                        </div>
-                    <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div id="prodSub">
+            <h2 id="subF">Tools</h2>
+        </div> -->
 
+        <div class="d-flex justify-content-evenly" id="prodMg1">
+            <!-- code2 goes here -->
 
 
         </div>
@@ -220,7 +178,8 @@
 
     <div class="fixed-bottom">
         <footer id="foot">
-
+            <h3>SILK</h3>
+            <p id="date"></p>
         </footer>
     </div>
 
@@ -229,6 +188,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="../script/product.js"></script>
 </body>
 
 </html>
