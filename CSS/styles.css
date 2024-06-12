@@ -1,5 +1,5 @@
 /* Home pg bg */
-#homeBg{
+#homeBg {
     background-image: url(https://i.postimg.cc/LssXf8rZ/BackF-1.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,77 +7,77 @@
 
 
 /* nav bar background colour */
-#navbarB{
+#navbarB {
     background-color: black;
     /* height: 165px;    */
 }
 
 /* for SILK in nav bar */
-.heading{
+.heading {
     margin-left: 40%;
     color: white;
 }
 
 /* style SILK heading */
-#hSilk{
+#hSilk {
     font-family: playfair display;
-    font-size:70px;
+    font-size: 70px;
     font-weight: bolder;
 }
 
 /* My lip+silk logo div */
-#logo{
+#logo {
     justify-self: flex-start;
 }
 
 /* placing of nav links */
-#position{
+#position {
     margin-top: 0;
-    
+
 }
 
 /* to postion SILK w nav links */
-#flex{
+#flex {
     display: grid;
     grid-template-columns: auto;
-    grid-row-gap:10px;
+    grid-row-gap: 10px;
     /* margin-left: 5%; */
     justify-content: center;
 }
 
 /* spacing and styling of nav li */
-#navC{
+#navC {
     margin-left: 4pc;
     font-family: playfair display;
     font-size: 35px;
     color: white;
 }
 
-#navC:hover{
+#navC:hover {
     color: #900A06;
 }
 
 /* for footer */
-#foot{
+#foot {
     background-color: black;
     height: 65px;
     margin-bottom: 0px;
 }
 
 /* about bg */
-#aboutBg{
+#aboutBg {
     background-image: url(https://i.postimg.cc/qv9ZbksN/IMG-7789.jpg);
     background-repeat: repeat-y;
     background-size: cover;
 }
 
 /* to center btns ABOUT */
-#btns{
+#btns {
     margin-left: 0%;
 }
 
 /* for spaces btwn btns ABOUT */
-#space{
+#space {
     margin-bottom: 3%;
     width: 1440px;
     height: 70px;
@@ -91,53 +91,47 @@
 }
 
 /*  heading for about  */
-#aboutH{
+#aboutH {
     margin-left: 36%;
     margin-top: 2%;
     margin-bottom: 2%;
-    
+
 
 }
 
 /* to extend About page */
-#aboutScroll{
+#aboutScroll {
     height: 1000px;
 }
 
 /* to extend product pg */
-#prodScroll{
+#prodScroll {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* spaces between cards divs 1 */
-#prodMg{
-    margin-top: 1%;
-    margin-bottom: 5%;
-
-}
 
 /* spaces between cards divs 2 */
-#prodMg1{
+#prodMg1 {
     margin-top: 1%;
     margin-bottom: 5%;
 
 }
 
 /* postioning of products btns */
-#btnP{
+#btnP {
     margin-left: 1%;
     background-image: url(https://i.postimg.cc/jq6MgFyx/Untitled-design.png);
     color: white;
-    border:none;
+    border: none;
     height: 62px;
     width: 124px;
-    
+
 }
 
 /* styling of products purchase and delete btn */
-#butc{
+#butc {
     background-color: black;
     font-family: playfair display;
     font-size: 16px;
@@ -146,12 +140,12 @@
 
 
 /* quantity div for quantity */
-#quantP{
+#quantP {
     margin-bottom: 1%;
 }
 
 /* total cost display */
-#totalcost{
+#totalcost {
     width: fit-content;
     height: 26px;
     border: black 1px solid;
@@ -160,14 +154,14 @@
 
 
 /* products img heading */
-#prodH{
+#prodH {
     margin-left: 38%;
     margin-top: 1%;
     margin-bottom: 2%;
 }
 
 /* products sub heading div */
-#prodSub{
+#prodSub {
     width: 1440px;
     background-color: #900A06;
     height: 80px;
@@ -176,7 +170,7 @@
 }
 
 /* to style prod subh */
-#subF{
+#subF {
     color: white;
     font-family: playfair display;
     font-size: 40px;
@@ -186,25 +180,25 @@
 
 
 /* products bg */
-#prodbg{
+#prodbg {
     background-image: url(https://i.postimg.cc/6Qr4k0vd/image-1-1.png);
     background-repeat: repeat-y;
     background-size: contain;
 }
 
 /* sort btn postioning */
-#sortbtn{
+#sortbtn {
     margin-left: 92.5%;
-    
+
 }
 
 /* to style sort btn */
-#sortB{
+#sortB {
     background-color: #B00505;
 }
 
 /* modal btn */
-#modalBtn{
+#modalBtn {
     background-color: #900A06;
     color: white;
     margin-bottom: 1%;
@@ -222,23 +216,47 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
-  }
-  
- .loadAni {
-    border: 16px solid #B00505; 
+}
+
+.loadAni {
+    border: 16px solid #B00505;
     width: 120px;
-    border-top: 16px solid #900A06; 
+    border-top: 16px solid #900A06;
     border-radius: 50%;
     height: 120px;
     animation: spin 10s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  #disSec {
-    display: none;
-  }
+}
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#disSec {
+    display: none;
+}
+
+
+#products {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* spaces between cards divs 1 */
+#prodMg {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 1%;
+    justify-items: center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 5%;
+    gap: 6%;
+    padding-left: 150px;
+    padding-right: 150px;
+}

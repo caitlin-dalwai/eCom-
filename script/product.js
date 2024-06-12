@@ -34,21 +34,30 @@ let prod2 = new CreateItem(2, 'https://i.postimg.cc/43t249gQ/Makeup-1.png', 'Red
 
 let prod3 = new CreateItem(3, 'https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png', 'NARS foundation', 200, 'Cosmetic Product','Indulge in the luxurious formulas crafted with skin-loving ingredients that nourish and enhance your natural beauty. From silk to full coverage, each foundation seamlessly blends into the skin, blurring imperfections and creating a smooth, flawless canvas.',1)
 
+let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Tool','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 1)
+
+let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Cosmetic Product', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 1 )
+
+let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 1) 
 // let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Cosmetic Product','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 1)
 
 // let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Tool', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 1 )
 
 // let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 1) 
 
-let items = [prod1, prod2, prod3]
+let items = [prod1, prod2, prod3, prod4, prod5, prod6]
 
 // localStorage.setItem('items', JSON.stringify(items))
 
 let place = document.getElementById('prodMg')
 
-items.forEach(item =>{
+
+// param-placeholderForArray added there to be in place of items
+function displayProducts(placeholderForArray){
+    place.innerHTML = ''
+    placeholderForArray.forEach(item =>{
     place.innerHTML += `
-   <div class="card" style="width: 18rem;" id="${item.category}">
+   <div class="card" style="width: 18rem;" id="products">
                 <img src="${item.image}" class="card-img-top" alt="blush">
                 <div class="card-body">
                     <h5 class="card-title" >${item.name}</h5>
@@ -100,101 +109,127 @@ items.forEach(item =>{
 
 
     `
-})
+})}
+displayProducts(items)
 
 
-let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Cosmetic Product','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 1)
 
-let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Tool', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 1 )
 
-let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 1) 
 
-let items1 = [prod4, prod5, prod6]
+// localStorage.setItem('items', JSON.stringify([...items,...items1]))
+localStorage.setItem('items', JSON.stringify(items))
 
-localStorage.setItem('items', JSON.stringify([...items,...items1]))
+// let place1 = document.getElementById('prodMg1')
 
-let place1 = document.getElementById('prodMg1')
+// items1.forEach(item1 =>{
+//     place1.innerHTML += `
+//    <div class="card" style="width: 18rem;" id="${item1.category}">
+//                 <img src="${item1.image}" class="card-img-top" alt="blush">
+//                 <div class="card-body">
+//                     <h5 class="card-title" >${item1.name}</h5>
+//                     <p value="400">R${item1.price}</p>
 
-items1.forEach(item1 =>{
-    place1.innerHTML += `
-   <div class="card" style="width: 18rem;" id="${item1.category}">
-                <img src="${item1.image}" class="card-img-top" alt="blush">
-                <div class="card-body">
-                    <h5 class="card-title" >${item1.name}</h5>
-                    <p value="400">R${item1.price}</p>
+//                     <!-- Button trigger modal -->
+//                     <button type="button" class="btn" id="modalBtn" data-bs-toggle="modal"
+//                         data-bs-target="#exampleModal${item1.id}">
+//                         Description
+//                     </button>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn" id="modalBtn" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal${item1.id}">
-                        Description
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal${item1.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Description</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="card-text"> ${item1.description}.</p>
+//                     <!-- Modal -->
+//                     <div class="modal fade" id="exampleModal${item1.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
+//                         aria-hidden="true">
+//                         <div class="modal-dialog">
+//                             <div class="modal-content">
+//                                 <div class="modal-header">
+//                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Description</h1>
+//                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
+//                                         aria-label="Close"></button>
+//                                 </div>
+//                                 <div class="modal-body">
+//                                     <p class="card-text"> ${item1.description}.</p>
                                    
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="quantP">
-                        <h6>Quantity:</h6>
-                        <input type="number" id="mass" placeholder="Enter Quantity">
-                    </div>
-                    <h6>Total cost:</h6>
-                    <div id="totalcost">
+//                                     </div>
+//                                     <div class="modal-footer">
+//                                         <button type="button" class="btn btn-secondary"
+//                                             data-bs-dismiss="modal">Close</button>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                         <div id="quantP">
+//                         <h6>Quantity:</h6>
+//                         <input type="number" id="mass" placeholder="Enter Quantity">
+//                     </div>
+//                     <h6>Total cost:</h6>
+//                     <div id="totalcost">
 
-                    </div>
-                    <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc" value='${item1.id}'>PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
+//                     </div>
+//                     <div class="d-flex">
+//                         <a href="#" class="btn btn-primary" id="btnP">
+//                             <h1 id="butc" value='${item1.id}'>PURCHASE</h1>
+//                         </a><a href="#" class="btn btn-primary" id="btnP">
+//                             <h1 id="butc">DELETE</h1>
+//                         </a>
+//                     </div>
+//                 </div>
 
 
-    `
-})
+//     `
+// })
 
 // sort btn
-let category = document.getElementById('cLinkJs')
+let category = document.querySelector('select')
 
-category.addEventListener('click', ()=>{
-   
-    items.forEach(item =>{
-        if (`${item.category}` === items[item].category) {
-            return item.innerHTML;
-        } else {
-            alert('does not exist')
-        }
-    })
+category.addEventListener('click', (event)=>{
+   console.log(event.target.value);
+   if(event.target.value == 'none') {
+    displayProducts(items)
+    return
+   }
+let filtered = items.filter(item => item.category == event.target.value)
+   displayProducts(filtered)
+//    alert('hehe')
+    // items.forEach(item =>{
+
+    //     if (`${item.category}` === items[item.category]) {
+    //         return item.innerHTML;
+    //     } else {
+    //         alert('does not exist')
+    //     }
+    // })
 });
 
+let price = document.getElementById('pLinkJs')
 
-let category1 = document.getElementById('cLinkJs1')
-
-category1.addEventListener('click', ()=>{
-   
-    items1.forEach(item1 =>{
-        if (`${item1.category}` === items[category]) {
-            return item1.innerHTML;
-        } else {
-            alert('does not exist')
+price.addEventListener('click', (event)=>{
+    console.log(event.target.value);
+    if (event.target.value == 'price') {
+        displayProducts(items)
+        return
         }
-    })
-});
+        // let sortp = items.sort((a, b) => a.items.${price}.value - b.items.price.value);
+        
+        let sortp = items.sort(item => item.price == event.target.value)
+        displayProducts(sortp)
+    
+})
+
+// Sort the items based on their prices
+// let sortp = items.sort((a, b) => {
+//     let price1 = items.getPrice(a);
+//     let price2 = getPrice(b);
+//     return price1 - price2;
+// });
+
+// let category1 = document.getElementById('cLinkJs1')
+
+// category1.addEventListener('click', ()=>{
+   
+//     items1.forEach(item1 =>{
+//         if (`${item1.category}` === items1[category]) {
+//             return item1.innerHTML;
+//         } else {
+//             alert('does not exist')
+//         }
+//     })
+// });
