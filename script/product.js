@@ -1,3 +1,11 @@
+// loading pg 
+window.onload = () => {
+    document.getElementById('loadBg').style.display = 'none';
+    document.getElementById('disSec').style.display = 'block';
+  };
+
+
+
 let d = new Date();
 
 let dt = document.getElementById('date');
@@ -162,3 +170,31 @@ items1.forEach(item1 =>{
 
     `
 })
+
+// sort btn
+let category = document.getElementById('cLinkJs')
+
+category.addEventListener('click', ()=>{
+   
+    items.forEach(item =>{
+        if (`${item.category}` === items[item].category) {
+            return item.innerHTML;
+        } else {
+            alert('does not exist')
+        }
+    })
+});
+
+
+let category1 = document.getElementById('cLinkJs1')
+
+category1.addEventListener('click', ()=>{
+   
+    items1.forEach(item1 =>{
+        if (`${item1.category}` === items[category]) {
+            return item1.innerHTML;
+        } else {
+            alert('does not exist')
+        }
+    })
+});
