@@ -181,6 +181,8 @@ productSearch.addEventListener('input', () => {
      }
 });
 
+
+// to store items in checkout.js
 let cart = JSON.parse(localStorage.getItem('checkout')) || [];
 function addToCart(items) {
     try {
@@ -190,3 +192,25 @@ function addToCart(items) {
         alert('The Checkout is under construction');
     }
 }
+
+let purchasedItems = [];
+
+// to intial buttons to effect on checkout pg
+let purchasedButton = document.querySelectorAll('#butc')
+
+function addToCart(id) {
+    // looking for objs id that is equal to the id that has been clicked 
+    let item = items.filter(object=> object.id== id)
+    purchasedItems.push(item)
+    localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems))
+}
+
+
+
+
+purchasedButton.forEach(button=>{
+    button.addEventListener('click', (event)=>{
+    addToCart(event.target.value);
+        
+})
+})
