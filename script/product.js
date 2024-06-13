@@ -12,11 +12,6 @@ let dt = document.getElementById('date');
 dt.innerHTML = d;
 
 
-// let searchinp = document.getElementById('inputJs')
-// let searchbtn = document.getElementById('sBtnJs')
-// let category = document.getElementById('cLinkJs')
-// let price = document.getElementById('pLinkJs')
-// let aphlabetical = document.getElementById('aLinkJs')
 
 function CreateItem(id, image, name, price, category, description, quantity){
     this.id = id
@@ -28,7 +23,7 @@ function CreateItem(id, image, name, price, category, description, quantity){
     this.quantity = quantity
 }
 
-let prod1 = new CreateItem(1, 'https://i.postimg.cc/BnvGvNYc/Group-8.png', 'Rare Blush Deep Red', 400, 'Cosmetic Product', 'Elevate your makeup look with this stunning, richly pigmented blush that adds a touch of silk color to your cheeks. Rare Beauty, founded by renowned artist Selena Gomez, brings you this unique shade crafted to complement a variety of skin tones.', 1)
+let prod1 = new CreateItem(1, 'https://i.postimg.cc/BnvGvNYc/Group-8.png', 'Rare Blush', 400, 'Cosmetic Product', 'Elevate your makeup look with this stunning, richly pigmented blush that adds a touch of silk color to your cheeks. Rare Beauty, founded by renowned artist Selena Gomez, brings you this unique shade crafted to complement a variety of skin tones.', 1)
 
 let prod2 = new CreateItem(2, 'https://i.postimg.cc/43t249gQ/Makeup-1.png', 'Red Dior Lipstick', 300, 'Cosmetic Product', 'Dior Lipstick Red is a bold statement shade that exerts confidence and glamour. With its vibrant, classic red colour, it instantly elevates any look. Indulge in the velvety smooth application of Diors lipstick formula, which glides effortlessly onto the lips.', 1)
 
@@ -119,63 +114,7 @@ displayProducts(items)
 // localStorage.setItem('items', JSON.stringify([...items,...items1]))
 localStorage.setItem('items', JSON.stringify(items))
 
-// let place1 = document.getElementById('prodMg1')
 
-// items1.forEach(item1 =>{
-//     place1.innerHTML += `
-//    <div class="card" style="width: 18rem;" id="${item1.category}">
-//                 <img src="${item1.image}" class="card-img-top" alt="blush">
-//                 <div class="card-body">
-//                     <h5 class="card-title" >${item1.name}</h5>
-//                     <p value="400">R${item1.price}</p>
-
-//                     <!-- Button trigger modal -->
-//                     <button type="button" class="btn" id="modalBtn" data-bs-toggle="modal"
-//                         data-bs-target="#exampleModal${item1.id}">
-//                         Description
-//                     </button>
-
-//                     <!-- Modal -->
-//                     <div class="modal fade" id="exampleModal${item1.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
-//                         aria-hidden="true">
-//                         <div class="modal-dialog">
-//                             <div class="modal-content">
-//                                 <div class="modal-header">
-//                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Description</h1>
-//                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
-//                                         aria-label="Close"></button>
-//                                 </div>
-//                                 <div class="modal-body">
-//                                     <p class="card-text"> ${item1.description}.</p>
-                                   
-//                                     </div>
-//                                     <div class="modal-footer">
-//                                         <button type="button" class="btn btn-secondary"
-//                                             data-bs-dismiss="modal">Close</button>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                         <div id="quantP">
-//                         <h6>Quantity:</h6>
-//                         <input type="number" id="mass" placeholder="Enter Quantity">
-//                     </div>
-//                     <h6>Total cost:</h6>
-//                     <div id="totalcost">
-
-//                     </div>
-//                     <div class="d-flex">
-//                         <a href="#" class="btn btn-primary" id="btnP">
-//                             <h1 id="butc" value='${item1.id}'>PURCHASE</h1>
-//                         </a><a href="#" class="btn btn-primary" id="btnP">
-//                             <h1 id="butc">DELETE</h1>
-//                         </a>
-//                     </div>
-//                 </div>
-
-
-//     `
-// })
 
 // sort btn
 let category = document.querySelector('select')
@@ -188,48 +127,78 @@ category.addEventListener('click', (event)=>{
    }
 let filtered = items.filter(item => item.category == event.target.value)
    displayProducts(filtered)
-//    alert('hehe')
-    // items.forEach(item =>{
 
-    //     if (`${item.category}` === items[item.category]) {
-    //         return item.innerHTML;
-    //     } else {
-    //         alert('does not exist')
-    //     }
-    // })
 });
 
+// price range sort
 let price = document.getElementById('pLinkJs')
 
-price.addEventListener('click', (event)=>{
-    console.log(event.target.value);
-    if (event.target.value == 'price') {
-        displayProducts(items)
-        return
-        }
-        // let sortp = items.sort((a, b) => a.items.${price}.value - b.items.price.value);
-        
-        let sortp = items.sort(item => item.price == event.target.value)
-        displayProducts(sortp)
-    
-})
+items.sort(function(a, b) {
+    return a.price - b.price;
+  });
 
-// Sort the items based on their prices
-// let sortp = items.sort((a, b) => {
-//     let price1 = items.getPrice(a);
-//     let price2 = getPrice(b);
-//     return price1 - price2;
+price.addEventListener('click', function() {
+    items.sort(function(a, b) {
+      return a.price - b.price;
+    });
+    displayItems(); 
+  });
+  
+  function displayItems() {
+    items.forEach(function(item) {
+      displayProducts(items)
+    });
+    place.innerHTML = html;
+  }
+
+//   alphabetical
+  items.sort(function(a, b) {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  });
+
+  let alphab = document.getElementById('aLinkJs')
+
+  alphab.addEventListener('click', function() {
+    items.sort(function(a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+    displayItems(); 
+  });
+  
+  function displayItems() {
+    items.forEach(function(item) {
+      displayProducts(items)
+    });
+    place.innerHTML = html;
+  }
+
+//   search bar
+// items.sort(function(a, b) {
+//     if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+//     if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+//     return 0;
+//   });
+
+
+
+// let searchBar = document.getElementById('inputJs')
+// searchBar.addEventListener('input', (event)=>{
+//     let searchCond = searchBar.value.toLowerCase();
+//     let funcItems = items.filter(function(item) {
+//      return item.name.toLowerCase().includes(searchCond);
+// });
+// displayItems(funcItems);
 // });
 
-// let category1 = document.getElementById('cLinkJs1')
+// function displayItems(items) {
+      
+//        items.forEach(function(item) {
+//         displayProducts(items)
+//       });
+//       place.innerHTML = displayItems(funcItems); 
+//      }
 
-// category1.addEventListener('click', ()=>{
-   
-//     items1.forEach(item1 =>{
-//         if (`${item1.category}` === items1[category]) {
-//             return item1.innerHTML;
-//         } else {
-//             alert('does not exist')
-//         }
-//     })
-// });
