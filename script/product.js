@@ -200,7 +200,7 @@ let purchasedButton = document.querySelectorAll('#butc')
 
 function addToCart(id) {
     // looking for objs id that is equal to the id that has been clicked 
-    let item = items.filter(object=> object.id== id)
+    let item = items.filter(item => item.id== id)
     purchasedItems.push(item)
     localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems))
 }
