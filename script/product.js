@@ -23,17 +23,17 @@ function CreateItem(id, image, name, price, category, description, quantity){
     this.quantity = quantity
 }
 
-let prod1 = new CreateItem(1, 'https://i.postimg.cc/BnvGvNYc/Group-8.png', 'Rare Blush', 400, 'Cosmetic Product', 'Elevate your makeup look with this stunning, richly pigmented blush that adds a touch of silk color to your cheeks. Rare Beauty, founded by renowned artist Selena Gomez, brings you this unique shade crafted to complement a variety of skin tones.', 1)
+let prod1 = new CreateItem(1, 'https://i.postimg.cc/BnvGvNYc/Group-8.png', 'Rare Blush', 400, 'Cosmetic Product', 'Elevate your makeup look with this stunning, richly pigmented blush that adds a touch of silk color to your cheeks. Rare Beauty, founded by renowned artist Selena Gomez, brings you this unique shade crafted to complement a variety of skin tones.', 0)
 
-let prod2 = new CreateItem(2, 'https://i.postimg.cc/43t249gQ/Makeup-1.png', 'Red Dior Lipstick', 300, 'Cosmetic Product', 'Dior Lipstick Red is a bold statement shade that exerts confidence and glamour. With its vibrant, classic red colour, it instantly elevates any look. Indulge in the velvety smooth application of Diors lipstick formula, which glides effortlessly onto the lips.', 1)
+let prod2 = new CreateItem(2, 'https://i.postimg.cc/43t249gQ/Makeup-1.png', 'Red Dior Lipstick', 300, 'Cosmetic Product', 'Dior Lipstick Red is a bold statement shade that exerts confidence and glamour. With its vibrant, classic red colour, it instantly elevates any look. Indulge in the velvety smooth application of Diors lipstick formula, which glides effortlessly onto the lips.', 0)
 
-let prod3 = new CreateItem(3, 'https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png', 'NARS foundation', 200, 'Cosmetic Product','Indulge in the luxurious formulas crafted with skin-loving ingredients that nourish and enhance your natural beauty. From silk to full coverage, each foundation seamlessly blends into the skin, blurring imperfections and creating a smooth, flawless canvas.',1)
+let prod3 = new CreateItem(3, 'https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png', 'NARS foundation', 200, 'Cosmetic Product','Indulge in the luxurious formulas crafted with skin-loving ingredients that nourish and enhance your natural beauty. From silk to full coverage, each foundation seamlessly blends into the skin, blurring imperfections and creating a smooth, flawless canvas.',0)
 
-let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Tool','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 1)
+let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Tool','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 0)
 
-let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Cosmetic Product', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 1 )
+let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Cosmetic Product', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 0 )
 
-let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 1) 
+let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 0) 
 // let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Cosmetic Product','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 1)
 
 // let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Tool', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 1 )
@@ -87,8 +87,9 @@ function displayProducts(placeholderForArray){
                                 </div>
                             </div>
                         </div>
+                       
                         <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc" value='${item.id}'>ADD ITEM</h1>
+                            <button  class="butc" value='${item.id}'>ADD ITEM</button>
                         </a>
                     </div>
                 </div>
@@ -103,7 +104,7 @@ displayProducts(items)
 
 
 // localStorage.setItem('items', JSON.stringify([...items,...items1]))
-localStorage.setItem('items', JSON.stringify(items))
+// localStorage.setItem('items', JSON.stringify(items))
 
 
 
@@ -187,7 +188,7 @@ let cart = JSON.parse(localStorage.getItem('checkout')) || [];
 function addToCart(items) {
     try {
         cart.push(items);
-        localStorage.setItem('checkout', JSON.stringify(cart));
+        localStorage.setItem('items', JSON.stringify(items));
     } catch (e) {
         alert('The Checkout is under construction');
     }
@@ -196,21 +197,35 @@ function addToCart(items) {
 let purchasedItems = [];
 
 // to intial buttons to effect on checkout pg
-let purchasedButton = document.querySelectorAll('#butc')
+let purchasedButton = document.querySelectorAll('.butc')
 
 function addToCart(id) {
     // looking for objs id that is equal to the id that has been clicked 
-    let item = items.filter(item => item.id== id)
-    purchasedItems.push(item)
+    let items1 = items.filter(item=> {
+      if (item.id == id && item.quantity == 0) {
+        purchasedItems.push(item)
+        item.quantity++
+      }else if(item.quantity>=1){
+        item.quantity++
+      }
+    })
+    console.log(purchasedItems)
+    // purchasedItems.push(item)
     localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems))
 }
 
 
 
 
+
+
+
+
 purchasedButton.forEach(button=>{
+  let value = button.value
     button.addEventListener('click', (event)=>{
-    addToCart(event.target.value);
+      addToCart(value)
+      console.log(value)
         
 })
 })

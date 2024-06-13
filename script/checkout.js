@@ -1,5 +1,5 @@
 // storage from product
-let cart = JSON.parse(localStorage.getItem('checkout')) || [];
+let cart = JSON.parse(localStorage.getItem('purchasedItems')) ;
 
 // loading pg 
 // window.onload = () => {
@@ -7,32 +7,24 @@ let cart = JSON.parse(localStorage.getItem('checkout')) || [];
 //     document.getElementById('disSec').style.display = 'block';
 //   };
 
-// let place = document.getElementById('cartD')
+let place = document.getElementById('cartD')
+let body = document.querySelector('tbody')
 
-// function displayProducts(cart){
-//     place.innerHTML = ''
-//     placeholderForArray.forEach(item =>{
-//     place.innerHTML += `
-//    <table class="table">
-//             <thead>
-//               <tr>
-//                 <th scope="col"> </th>
-//                 <th scope="col">Name</th>
-//                 <th scope="col">Category</th>
-//                 <th scope="col">Quantity</th>
-//                 <th scope="col" value="number">Amount</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               <tr>
-//                 <th scope="row">${item.image}</th>
-//                 <td>${item.name}</td>
-//                 <td>${item.category}</td>
-//                 <td>${item.quantity}</td>
-//                 <td>${item.price}</td>
-//               </tr>
-//               </tbody>
-//           </table>
-//     `
-// })}
-// displayProducts(items)
+function displayProducts(){
+
+    cart.forEach(item =>{
+    body.innerHTML += `
+   <table class="table">
+              <tr>
+                <th scope="row"><img src="${item.image}" alt="img" style="width: 50px; height: 60px;"></th>
+                <td>${item.name}</td>
+                <td>${item.category}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price}</td>
+              </tr>
+              </tbody>
+    `
+})}
+displayProducts()
+
+
