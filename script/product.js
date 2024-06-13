@@ -58,6 +58,8 @@ function displayProducts(placeholderForArray){
                     <h5 class="card-title" >${item.name}</h5>
                     <p value="400">R${item.price}</p>
 
+                    
+                    <div class="d-flex">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn" id="modalBtn" data-bs-toggle="modal"
                         data-bs-target="#exampleModal${item.id}">
@@ -85,19 +87,8 @@ function displayProducts(placeholderForArray){
                                 </div>
                             </div>
                         </div>
-                        <div id="quantP">
-                        <h6>Quantity:</h6>
-                        <input type="number" id="mass" placeholder="Enter Quantity">
-                    </div>
-                    <h6>Total cost:</h6>
-                    <div id="totalcost">
-
-                    </div>
-                    <div class="d-flex">
                         <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc" value='${item.id}'>PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
+                            <h1 id="butc" value='${item.id}'>ADD ITEM</h1>
                         </a>
                     </div>
                 </div>
@@ -176,29 +167,26 @@ price.addEventListener('click', function() {
     place.innerHTML = html;
   }
 
-//   search bar
-// items.sort(function(a, b) {
-//     if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-//     if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-//     return 0;
-//   });
+// search bar
+displayProducts(items);
+let productSearch = document.querySelector('[data-search-product]');
+productSearch.addEventListener('input', () => {
+    try {
+        let searchItem = items.filter(item => {
+            return item.name.toLowerCase().includes(productSearch.value.toLowerCase());
+        });
+        displayProducts(searchItem);
+    } catch (e) {
+       alert('Function is under construction');
+     }
+});
 
-
-
-// let searchBar = document.getElementById('inputJs')
-// searchBar.addEventListener('input', (event)=>{
-//     let searchCond = searchBar.value.toLowerCase();
-//     let funcItems = items.filter(function(item) {
-//      return item.name.toLowerCase().includes(searchCond);
-// });
-// displayItems(funcItems);
-// });
-
-// function displayItems(items) {
-      
-//        items.forEach(function(item) {
-//         displayProducts(items)
-//       });
-//       place.innerHTML = displayItems(funcItems); 
-//      }
-
+let cart = JSON.parse(localStorage.getItem('checkout')) || [];
+function addToCart(items) {
+    try {
+        cart.push(items);
+        localStorage.setItem('checkout', JSON.stringify(cart));
+    } catch (e) {
+        alert('The Checkout is under construction');
+    }
+}
