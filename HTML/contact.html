@@ -5,8 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/styles.css">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
-    
+<body id="conBg">
+    <div id="navbarB">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div id="logo">
+                    <a class="navbar-brand" href="#"><img src="https://i.postimg.cc/tgQ692Fr/CANVAS-1.png"
+                            alt="logo"></a>
+                </div>
+                <div id="flex">
+                    <div class="heading">
+                        <h1 id="hSilk">SILK</h1>
+                    </div>
+                    <div class="container-fluid" id="position">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav" id="pos">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="navC" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="navC" href="./HTML/about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="navC" href="./HTML/product.html">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="navC" href="./HTML/admin.html">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="navC" href="./HTML/checkout.html">Checkout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="navC" href="./HTML/contact.html">Contact</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <div id="tCon">
+            <h2>Your feedback is important to the production of the company</h2>
+        </div>
+        <div class="p-3 m-5 border-5 bd-example m-5 border-5">
+        <div class="mb-3" style="width: 20%;">
+            <label for="exampleFormControlInput1" class="form-label" id="fCon">Name</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1"  fdprocessedid="2486om">
+          </div>
+          <div class="mb-3" style="width: 20%;">
+            <label for="exampleFormControlInput1" class="form-label" id="fCon">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" fdprocessedid="2486om">
+          </div>
+          <div class="mb-3" style="width: 50%;">
+            <label for="exampleFormControlTextarea1" class="form-label" id="fCon">Type your feedback here</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          
+            <button type="submit">Submit</button>
+        </div>
+    </main>
+
+    <div class="fixed-bottom">
+        <footer id="foot">
+            <h3>SILK</h3>
+            <p id="date"></p>
+        </footer>
+        </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="../script/index.js"></script>    
 </body>
 </html>

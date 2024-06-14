@@ -266,3 +266,24 @@
     background-image: url(https://i.postimg.cc/7hddPFL5/image-3.png);
     background-size: cover;
 }
+
+#conBg{
+    background-image: url(https://i.postimg.cc/Wz37NTtV/image-1-2.png);
+    background-size: cover;
+}
+
+#fCon{
+    font-family: playfair display;
+    font-weight: bold;
+    color: #900A06;
+    background-color: black;
+}
+
+#tCon{
+    font-family: playfair display;
+    color: white;
+    background-color: #900A06;
+    margin-top: 1%;
+    margin-left: 10%;
+    width: 100px;
+}
