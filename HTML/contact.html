@@ -13,7 +13,7 @@
         <header>
             <nav class="navbar navbar-expand-lg">
                 <div id="logo">
-                    <a class="navbar-brand" href="#"><img src="https://i.postimg.cc/tgQ692Fr/CANVAS-1.png"
+                    <a class="navbar-brand" href="../index.html"><img src="https://i.postimg.cc/tgQ692Fr/CANVAS-1.png"
                             alt="logo"></a>
                 </div>
                 <div id="flex">
@@ -24,28 +24,28 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon" id="toggleC"></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav" id="pos">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="navC" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link" id="navC" href="../index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="navC" href="./HTML/about.html">About</a>
+                                    <a class="nav-link" id="navC" href="./about.html">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="navC" href="./HTML/product.html">Products</a>
+                                    <a class="nav-link" id="navC" href="./product.html">Products</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="navC" href="./HTML/admin.html">Admin</a>
+                                    <a class="nav-link" id="navC" href="./admin.html">Admin</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="navC" href="./HTML/checkout.html">Checkout</a>
+                                    <a class="nav-link" id="navC" href="./checkout.html">Checkout</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="navC" href="./HTML/contact.html">Contact</a>
+                                <li class="nav-item nav-underline">
+                                    <a class="nav-link active" id="navC" aria-current="page" href="#">Contact</a>
                                 </li>
 
                             </ul>
@@ -55,9 +55,9 @@
             </nav>
         </header>
     </div>
-    <main>
+    <!-- <main>
         <div id="tCon">
-            <h2>Your feedback is important to the production of the company</h2>
+            <h2 style="width: 1000px;">Your feedback is important to the production of the company</h2>
         </div>
         <div class="p-3 m-5 border-5 bd-example m-5 border-5">
         <div class="mb-3" style="width: 20%;">
@@ -75,6 +75,30 @@
           
             <button type="submit">Submit</button>
         </div>
+    </main> -->
+
+    <main>
+        <div id="tCon">
+            <h2 style="width: 1000px;">Your feedback is important to the production of the company</h2>
+        </div>
+        <form action="https://formspree.io/f/myyrldon" method="POST">
+            <div class="p-3 m-5 border-5 bd-example m-5 border-5">
+                <div class="mb-3" style="width: 20%;">
+                    <label for="name" class="form-label" id="fCon">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3" style="width: 20%;">
+                    <label for="email" class="form-label" id="fCon">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3" style="width: 50%;">
+                    <label for="feedback" class="form-label" id="fCon">Type your feedback here</label>
+                    <textarea class="form-control" id="feedback" name="feedback" rows="3"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
     </main>
 
     <div class="fixed-bottom">
