@@ -79,7 +79,7 @@
 /* for spaces btwn btns ABOUT */
 #space {
     margin-bottom: 3%;
-    width: 1440px;
+    width: 50%;
     height: 70px;
     font-size: 35px;
     color: black;
@@ -87,6 +87,7 @@
     background-color: #900A06;
     border: black 5px solid;
     font-family: playfair display;
+    margin-left: 25%;
 
 }
 
@@ -276,7 +277,7 @@
     font-family: playfair display;
     font-weight: bold;
     color: #900A06;
-    background-color: black;
+    background-color: white;
 }
 
 #tCon{
@@ -284,6 +285,91 @@
     color: white;
     background-color: #900A06;
     margin-top: 1%;
-    margin-left: 10%;
-    width: 100px;
+    margin-left: 17%;
+    width: 1000px;
+    text-align: center;
+}
+
+#toggleC{
+    background-color: #900A06;
+}
+
+/* Your existing CSS styles */
+
+/* Media query for 300px screen */
+@media only screen and (max-width: 300px) {
+    /* Styles for 300px screen */
+  
+    /* Adjust font sizes */
+    .heading {
+      font-size: 24px;
+    }
+  
+    #hSilk {
+      font-size: 40px;
+    }
+  
+    #navC {
+      font-size: 24px;
+    }
+  
+    #subF {
+      font-size: 24px;
+    }
+  
+    /* Adjust margins and padding */
+    #logo {
+      justify-self: center;
+      margin: 10px;
+    }
+  
+    #flex {
+      grid-template-columns: auto;
+      grid-row-gap: 5px;
+      margin-left: 0;
+      justify-content: center;
+    }
+  
+    #navC {
+      margin-left: 10px;
+    }
+  
+    #prodMg {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      gap: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    #prodMg1 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    /* Adjust image sizes */
+    #prodbg {
+      background-size: 100% 100%;
+    }
+  
+    #aboutBg {
+      background-size: 100% 100%;
+    }
+  
+    #cartBg {
+      background-size: 100% 100%;
+    }
+  
+    #conBg {
+      background-size: 100% 100%;
+    }
+  
+    /* Other styles as needed */
+  }
+
+#posTc{
+    margin-bottom: 3%;
+    background-color: #900A06;
+    color: black;
+    margin-top: 0px;
 }

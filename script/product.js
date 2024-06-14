@@ -42,7 +42,7 @@ let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 
 
 let items = [prod1, prod2, prod3, prod4, prod5, prod6]
 
-// localStorage.setItem('items', JSON.stringify(items))
+localStorage.setItem('items', JSON.stringify(items))
 
 let place = document.getElementById('prodMg')
 
@@ -194,7 +194,7 @@ function addToCart(items) {
     }
 }
 
-let purchasedItems = [];
+let purchasedItems =JSON.parse(localStorage.getItem('purchasedItems'))|| [];
 
 // to intial buttons to effect on checkout pg
 let purchasedButton = document.querySelectorAll('.butc')
@@ -229,3 +229,10 @@ purchasedButton.forEach(button=>{
         
 })
 })
+
+// Function to retrieve items from localStorage
+function getItemsFromLocalStorage() {
+  return JSON.parse(localStorage.getItem('items')) || [];
+}
+
+let items2 = getItemsFromLocalStorage();
