@@ -21,10 +21,13 @@ function displayProducts(){
                 <td>${item.category}</td>
                 <td>${item.quantity}</td>
                 <td>${item.price}</td>
+                <td><button id="btnP">Edit</button></td>
+                <td><button id="btnP">Delete</button></td>
               </tr>
               </tbody>
     `
 })}
 displayProducts()
+
 
 
