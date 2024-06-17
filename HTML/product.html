@@ -27,7 +27,7 @@
                     </div>
 
                     <!-- search btn -->
-                    <div class="fixed-top">
+                    <div>
                         <nav class="navbar">
                             <div class="container-fluid justify-content-end">
                                 <form class="d-flex" role="search">
@@ -36,41 +36,35 @@
                                     <!-- <button class="btn btn-outline-danger" id="sBtnJs" type="submit">Search</button> -->
                                 </form>
                             </div>
-                        </nav>
+                        
 
                         <!--  -->
 
                         <!-- sort btn -->
-                        <div class="dropdown" id="sortbtn">
-                            <button class="btn btn-secondary dropdown-toggle" id="sortB" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Sort by:
-                            </button>
-                            <ul class="dropdown-menu">
-                                <select name="" id="" >
-                                    <option value="none" selected>Category</option>
-                                    <option value="Cosmetic Product" id="cLinkJs">Cosmetic Products</option>
-                                    <option value="Tool" id="cLinkJs1">Tools</option>
-                                </select>
-                                <!-- <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" id="sortB" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Category:
-                                    </button>
-                                    
-                                    <ul class="dropdown-menu">
-                                    <li><button class="dropdown-item" id="cLinkJs">Cosmetic Products</button></li>
-                                    <li><button class="dropdown-item" id="cLinkJs1">Tools</button></li>
-                                    </ul>
-                                </div> -->
-                                <li><button class="dropdown-item" id="pLinkJs">Price Range</button></li>
-                                <li><button class="dropdown-item" id="aLinkJs">A-Z</button></li>
-                                <!-- <li><a class="dropdown-item" id="cLinkJs1" href="#">Tools</a></li>
-                                <li><a class="dropdown-item" id="pLinkJs" href="#">Price Range</a></li>
-                                <li><a class="dropdown-item" id="aLinkJs" href="#">A-Z</a></li> -->
-                            </ul>
-                        </div>
+                        <div id="main-box">
+                            <div>
+                              <label for="" class="form-label">Sort by category</label>
+                              <select name="categorySort" id="categorySort" onchange="categorySort()">
+                                <option value="All">All</option>
+                                <option value="Tool">Tools</option>
+                                <option value="Cosmetic Product">Cosmetic Product</option>
+                                
+                              </select>
+                              <label for="" class="form-label">Sort by price</label>
+                              <select name="priceSort" id="priceSort" onchange="priceSort()">
+                                <option value=""></option>
+                                <option value="Ascending">Ascending</option>
+                                <option value="Descending">Descending</option>
+                              </select>
+                              <label for="" class="form-label">Sort by name</label>
+                              <select name="sortName" id="sortName" onchange="sortName()">
+                                <option value=""></option>
+                                <option value="Ascending">Ascending</option>
+                                <option value="Descending">Descending</option>
+                              </select>
+                            </div>
                     </div>
+                        </nav>
 
                     <!--  -->
 
@@ -107,96 +101,37 @@
                         </div>
                     </div>
                 </div>
+
             </nav>
         </header>
     </div>
 
     <!-- loading pg -->
-    <div class="loadingBg" id="loadBg">
+    <!-- <div class="loadingBg" id="loadBg">
         <div class="loadAni"></div>
-    </div>
+    </div> -->
 
-    <div id="disSec">
+    <!-- <div id="disSec"> -->
 
         <main id="prodScroll">
             <!-- products heading -->
             <div id="prodH">
                 <img src="https://i.postimg.cc/Wbktk810/Group-3.png" alt="prodHead">
             </div>
-            <!--  -->
-            <!-- <div id="prodSub">
-            <h2 id="subF">Cosmetic Products</h2>
-        </div> -->
+            
             <div class="" id="prodMg">
 
                 <!-- js code will show here -->
 
             </div>
 
-            <!-- <div class="card" style="width: 18rem;">
-                <img src="https://i.postimg.cc/43t249gQ/Makeup-1.png" class="card-img-top" alt="lipstick">
-                <div class="card-body">
-                    <h5 class="card-title">Red Dior Lipstick</h5>
-                    <p value="300">R300</p>
-                    <p class="card-text">Dior Lipstick Red is a bold statement shade that exerts confidence and glamour.
-                        With its vibrant, classic red colour, it instantly elevates any look. Indulge in the velvety
-                        smooth application of Dior's lipstick formula, which glides effortlessly onto the lips.</p>
+     
 
-                    <div id="quantP">
-                        <h6>Quantity:</h6>
-                        <input type="number" id="mass" placeholder="Enter Quantity">
-                    </div>
-                    <h6>Total cost:</h6>
-                    <div id="totalcost">
-
-                    </div>
-                    <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png"
-                    class="card-img-top" alt="foundation">
-                <div class="card-body">
-                    <h5 class="card-title">NARS foundation</h5>
-                    <p value="200">R200</p>
-                    <p class="card-text">Indulge in the luxurious formulas crafted with skin-loving ingredients that
-                        nourish and enhance your natural beauty. From silk to full coverage, each foundation seamlessly
-                        blends into the skin, blurring imperfections and creating a smooth, flawless canvas.</p>
-                    <div id="quantP">
-                        <h6>Quantity:</h6>
-                        <input type="number" id="mass" placeholder="Enter Quantity">
-                    </div>
-                    <h6>Total cost:</h6>
-                    <div id="totalcost">
-
-                    </div> -->
-            <!-- <div class="d-flex">
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">PURCHASE</h1>
-                        </a><a href="#" class="btn btn-primary" id="btnP">
-                            <h1 id="butc">DELETE</h1>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div id="prodSub">
-            <h2 id="subF">Tools</h2>
-        </div> -->
-
-            <div class="d-flex justify-content-evenly" id="prodMg1">
+            <!-- <div class="d-flex justify-content-evenly" id="prodMg1"> -->
                 <!-- code2 goes here -->
 
 
-            </div>
+            <!-- </div> -->
 
 
 
@@ -205,7 +140,7 @@
         </main>
     </div>
 
-    <div class="fixed-bottom">
+    <div>
         <footer id="foot">
             <h3>SILK</h3>
             <p id="date"></p>

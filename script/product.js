@@ -1,180 +1,208 @@
-// loading pg 
-window.onload = () => {
-    document.getElementById('loadBg').style.display = 'none';
-    document.getElementById('disSec').style.display = 'block';
-  };
+let products = JSON.parse(localStorage.getItem("products")) ? JSON.parse(localStorage.getItem("products")) : 
+[
+  {
+  title:"Rare blush",
+  category:"Cosmetic Product",
+  price:"400",
+  img:"https://i.postimg.cc/BnvGvNYc/Group-8.png"
+  },
+  {
+  title:"Red dior lipstick",
+  category:"Cosmetic Product",
+  price:"300",
+  img:"https://i.postimg.cc/43t249gQ/Makeup-1.png"
+  },
+  
+  {
+  title:"Nars Foundation",
+  category:"Cosmetic Product",
+  price:"200",
+  img:"https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png"
+  },
+  
+  {
+  title:"Chanel Brushes",
+  category:"Tool",
+  price:"350",
+  img:"https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png"
+  },    
+  {
+  title:"Red Headband",
+  category:"Tool",
+  price:"150",
+  img:"https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png"
+  },    
+  {
+  title:"Red Beauty Blender",
+  category:"Tool",
+  price:"50",
+  img:"https://i.postimg.cc/7ZQjZ2W5/download-1-1.png"
+  },    
+  ]
+  console.log(products);
+
+  let cart = JSON.parse(localStorage.getItem("cart"))
+  ? JSON.parse(localStorage.getItem("cart"))
+  : [];
+
+  function displayProducts(products){
+    document.querySelector("#prodMg").innerHTML = "";
+
+    products.forEach((product, position) => {
+        document.querySelector("#prodMg").innerHTML += `
+        <div class="card d-inline-flex p-2 bd-highlight" style="width: 18rem;">
+        <img id="img" class="card-img-top" src="${product.img}" alt="Card image cap">
+        <div class="card-body">
+            <h4 id="title" class="card-title">${product.title}</h4>
+            <h5 id="category" class="card-title">${product.category}</h5>
+            <p id="price" class="card-text">R${product.price}</p>
+            <div>
+
+        <p> Quantity:</p>
+                <input type="number" name="Quantity" class="form-control mb-2" id="quantity${position}" min="1" value="1">
+                <button class="btn btn-success mt-1" id="btnP" onclick="addToCart(${position})">Add to cart</button>
+
+            <div/>
+        </div>
+        </div>
+    
+      
+        `;
+    });
+}
+displayProducts(products);
+// CREATE
+function createProduct(){
+    let img = document.querySelector("#img").value;
+    let title = document.querySelector("#title").value;
+    let category = document.querySelector("#category").value;
+    let price = document.querySelector("#price").value;
 
 
 
-let d = new Date();
+    try {
+          if (!title || !price || !img) throw new Error("Please fill in all fields");
+          products.push({
+            title,
+            category,
+            price,
+            img,
+          });
+          localStorage.setItem("products", JSON.stringify(products));
+          displayProducts(products);
+        } catch (err) {
+          alert(err);
+        }
+      }
+      
 
-let dt = document.getElementById('date');
-dt.innerHTML = d;
+// DELETE
+// function deleteProduct(position) {
+//   let confirmation = confirm(
+//     "Are you sure you want to delete the selected product?"
+//   );
+
+//   if (confirmation) {
+//     products.splice(position, 1);
+//     localStorage.setItem("products", JSON.stringify(products));
+//     displayProducts(products);
+//   }
+// }
 
 
 
-function CreateItem(id, image, name, price, category, description, quantity){
-    this.id = id
-    this.image = image
-    this.name = name
-    this.price = price
-    this.category = category
-    this.description = description
-    this.quantity = quantity
+// UPDATE
+// function updateProduct(position){
+//     let img = document.querySelector(`#imgEdit${position}`).value;
+//     let title = document.querySelector(`#titleEdit${position}`).value;
+//     let category = document.querySelector(`#categoryEdit${position}`).value;
+//     let price = document.querySelector(`#priceEdit${position}`).value;
+//     try {
+//           if (!title || !price || !img) throw new Error("Please fill in all fields");
+//           products[position] = {
+//             title,
+//             category,
+//             price,
+//             img,
+//           };
+//           localStorage.setItem("products", JSON.stringify(products));
+//           displayProducts(products);
+//         } catch (err) {
+//           alert(err);
+//         }
+//       }
+
+
+function addToCart(position){
+    let qty = document.querySelector(`#quantity${position}`).value;
+    let added = false;
+
+    cart.forEach((product) => {
+        if(product.title == products[position].title){
+            alert(`You have added ${qty}  ${products[position].title} to the cart`);
+            product.qty = parseInt(product.qty) + parseInt(qty);
+            added = true;
+            localStorage.setItem("cart", JSON.stringify(cart))
+        }
+    });
+    if(!added){
+        alert(`You have added ${qty}  ${products[position].title} to the cart`);
+        cart.push({ ...products[position], qty});
+        console.log(cart);
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }
+   showcart(cart);
 }
 
-let prod1 = new CreateItem(1, 'https://i.postimg.cc/BnvGvNYc/Group-8.png', 'Rare Blush', 400, 'Cosmetic Product', 'Elevate your makeup look with this stunning, richly pigmented blush that adds a touch of silk color to your cheeks. Rare Beauty, founded by renowned artist Selena Gomez, brings you this unique shade crafted to complement a variety of skin tones.', 0)
+function categorySort(){
+    let category = document.querySelector("#categorySort").value;
 
-let prod2 = new CreateItem(2, 'https://i.postimg.cc/43t249gQ/Makeup-1.png', 'Red Dior Lipstick', 300, 'Cosmetic Product', 'Dior Lipstick Red is a bold statement shade that exerts confidence and glamour. With its vibrant, classic red colour, it instantly elevates any look. Indulge in the velvety smooth application of Diors lipstick formula, which glides effortlessly onto the lips.', 0)
+    if(category == "All"){
+        displayProducts(products);
+        return;
+    }
 
-let prod3 = new CreateItem(3, 'https://i.postimg.cc/PJfSMV8S/Light-Reflecting-Advanced-Skincare-Foundation-NARS-Sephora-1.png', 'NARS foundation', 200, 'Cosmetic Product','Indulge in the luxurious formulas crafted with skin-loving ingredients that nourish and enhance your natural beauty. From silk to full coverage, each foundation seamlessly blends into the skin, blurring imperfections and creating a smooth, flawless canvas.',0)
+    let fltrdCat = products.filter((product => {
+        return product.category == category;
+    }));
 
-let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Tool','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 0)
+    displayProducts(fltrdCat);
+}
 
-let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Cosmetic Product', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 0 )
-
-let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 0) 
-// let prod4 = new CreateItem(4, 'https://i.postimg.cc/WzPBPcfS/Solid-Padded-Headband-1.png', 'Red Headband', 100, 'Cosmetic Product','Crafted with comfort and convenience in mind, features a stretchy design that provides a comfortable fit.', 1)
-
-// let prod5 = new CreateItem(5, 'https://i.postimg.cc/MpGhwDdk/Chanel-Makeup-Brushes-New-Design-The-Beauty-Look-Book-1.png', 'Chanel Brushes', 350, 'Tool', 'These durable brushes come in a set of 10. Feels like you applying your makeup with silk. Easy to clean and looks luxurious', 1 )
-
-// let prod6 = new CreateItem(6, 'https://i.postimg.cc/7ZQjZ2W5/download-1-1.png', 'Beauty Blender', 50, 'Tool', 'Extra bouncy which aids in a smooth finish. Easy to clean and durable. Non stick tool that transfers all product on skin', 1) 
-
-let items = [prod1, prod2, prod3, prod4, prod5, prod6]
-
-localStorage.setItem('items', JSON.stringify(items))
-
-let place = document.getElementById('prodMg')
-
-
-// param-placeholderForArray added there to be in place of items
-function displayProducts(placeholderForArray){
-    place.innerHTML = ''
-    placeholderForArray.forEach(item =>{
-    place.innerHTML += `
-   <div class="card" style="width: 18rem;" id="products">
-                <img src="${item.image}" class="card-img-top" alt="blush">
-                <div class="card-body">
-                    <h5 class="card-title" >${item.name}</h5>
-                    <p value="400">R${item.price}</p>
-
-                    
-                    <div class="d-flex">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn" id="modalBtn" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal${item.id}">
-                        Description
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal${item.id}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Description</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="card-text"> ${item.description}.</p>
-                                   
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <a href="#" class="btn btn-primary" id="btnP">
-                            <button  class="butc" value='${item.id}'>ADD ITEM</button>
-                        </a>
-                    </div>
-                </div>
-
-
-    `
-})}
-displayProducts(items)
-
-
-
-
-
-// localStorage.setItem('items', JSON.stringify([...items,...items1]))
-// localStorage.setItem('items', JSON.stringify(items))
-
-
-
-// sort btn
-let category = document.querySelector('select')
-
-category.addEventListener('click', (event)=>{
-   console.log(event.target.value);
-   if(event.target.value == 'none') {
-    displayProducts(items)
-    return
-   }
-let filtered = items.filter(item => item.category == event.target.value)
-   displayProducts(filtered)
-
-});
-
-// price range sort
-let price = document.getElementById('pLinkJs')
-
-items.sort(function(a, b) {
-    return a.price - b.price;
-  });
-
-price.addEventListener('click', function() {
-    items.sort(function(a, b) {
-      return a.price - b.price;
-    });
-    displayItems(); 
-  });
+function priceSort() {
+    let direction = document.querySelector("#priceSort").value;
   
-  function displayItems() {
-    items.forEach(function(item) {
-      displayProducts(items)
-    });
-    place.innerHTML = html;
+    let sortedProducts = products.sort((a, b) => a.price - b.price);
+  
+    console.log(sortedProducts);
+  
+    if (direction == "Descending") sortedProducts.reverse();
+    displayProducts(sortedProducts);
   }
 
-//   alphabetical
-  items.sort(function(a, b) {
-    if (a.name < b.name) return -1;
-    if (a.name > b.name) return 1;
-    return 0;
-  });
-
-  let alphab = document.getElementById('aLinkJs')
-
-  alphab.addEventListener('click', function() {
-    items.sort(function(a, b) {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
+  function sortName() {
+    let direction = document.querySelector("#sortName").value;
+  
+    let sortedProducts = products.sort((a, b) => {
+      if (a.title.toLowerCase() < b.title.toLowerCase()) {
+        return -1;
+      }
+      if (a.title.toLowerCase() > b.title.toLowerCase()) {
+        return 1;
+      }
       return 0;
     });
-    displayItems(); 
-  });
-  
-  function displayItems() {
-    items.forEach(function(item) {
-      displayProducts(items)
-    });
-    place.innerHTML = html;
+    if (direction == "Descending") sortedProducts.reverse();
+    console.log(sortedProducts);
+    displayProducts(products);
   }
 
-// search bar
-displayProducts(items);
+  displayProducts(products);
 let productSearch = document.querySelector('[data-search-product]');
 productSearch.addEventListener('input', () => {
     try {
-        let searchItem = items.filter(item => {
-            return item.name.toLowerCase().includes(productSearch.value.toLowerCase());
+        let searchItem = products.filter(product => {
+            return product.title.toLowerCase().includes(productSearch.value.toLowerCase());
         });
         displayProducts(searchItem);
     } catch (e) {
@@ -182,57 +210,7 @@ productSearch.addEventListener('input', () => {
      }
 });
 
+let d = new Date();
 
-// to store items in checkout.js
-let cart = JSON.parse(localStorage.getItem('checkout')) || [];
-function addToCart(items) {
-    try {
-        cart.push(items);
-        localStorage.setItem('items', JSON.stringify(items));
-    } catch (e) {
-        alert('The Checkout is under construction');
-    }
-}
-
-let purchasedItems =JSON.parse(localStorage.getItem('purchasedItems'))|| [];
-
-// to intial buttons to effect on checkout pg
-let purchasedButton = document.querySelectorAll('.butc')
-
-function addToCart(id) {
-    // looking for objs id that is equal to the id that has been clicked 
-    let items1 = items.filter(item=> {
-      if (item.id == id && item.quantity == 0) {
-        purchasedItems.push(item)
-        item.quantity++
-      }else if(item.quantity>=1){
-        item.quantity++
-      }
-    })
-    console.log(purchasedItems)
-    // purchasedItems.push(item)
-    localStorage.setItem("purchasedItems", JSON.stringify(purchasedItems))
-}
-
-
-
-
-
-
-
-
-purchasedButton.forEach(button=>{
-  let value = button.value
-    button.addEventListener('click', (event)=>{
-      addToCart(value)
-      console.log(value)
-        
-})
-})
-
-// Function to retrieve items from localStorage
-function getItemsFromLocalStorage() {
-  return JSON.parse(localStorage.getItem('items')) || [];
-}
-
-let items2 = getItemsFromLocalStorage();
+let dt = document.getElementById('date');
+dt.innerHTML = d;
